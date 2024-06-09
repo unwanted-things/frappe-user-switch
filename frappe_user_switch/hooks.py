@@ -11,11 +11,11 @@ app_license = "mit"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/frappe_user_switch/css/frappe_user_switch.css"
-# app_include_js = "/assets/frappe_user_switch/js/frappe_user_switch.js"
+app_include_js = "/assets/frappe_user_switch/js/frappe_user_switch.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/frappe_user_switch/css/frappe_user_switch.css"
-# web_include_js = "/assets/frappe_user_switch/js/frappe_user_switch.js"
+web_include_js = "/assets/frappe_user_switch/js/frappe_user_switch.js"
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "frappe_user_switch/public/scss/website"
@@ -226,4 +226,3 @@ app_license = "mit"
 # default_log_clearing_doctypes = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
-

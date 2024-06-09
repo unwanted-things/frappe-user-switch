@@ -1,0 +1,1 @@
+frappe.require(["/assets/frappe_user_switch/js/users_sid.js"]);

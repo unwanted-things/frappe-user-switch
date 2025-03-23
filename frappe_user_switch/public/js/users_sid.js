@@ -1,4 +1,6 @@
-frappe.require(["/assets/frappe_user_switch/js/nav_html.js"]);
+frappe.require(["/assets/frappe_user_switch/js/nav_html.js"]).then(() => {
+  set_user_sid();
+});
 
 function set_user_sid() {
   frappe.call({
@@ -76,5 +78,3 @@ function set_current_login_user_sid(user_name, sid_user_map) {
   }
   window.localStorage.setItem("users_name", user_name);
 }
-
-set_user_sid();

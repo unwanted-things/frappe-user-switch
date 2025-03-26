@@ -15,7 +15,7 @@ def get_current_frappe_users_sid_data(sid_user_map):
         }
 
     sid = local.session.get("sid")
-    user = frappe.db.get_value("User", frappe.session.user, "full_name")
+    user = frappe.db.get_value("User", frappe.session.user, "name")
 
     sid_user_map = get_updated_sid_user_map(sid_user_map)
 

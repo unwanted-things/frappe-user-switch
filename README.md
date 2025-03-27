@@ -35,4 +35,4 @@ It’s simple! Frappe User Switch has its own way of [managing SIDs](https://mod
 
 #### License
 
-This project is licensed under the [mit](./license.txt)
+This project is licensed under the [AGPLv3 License](./LICENSE)

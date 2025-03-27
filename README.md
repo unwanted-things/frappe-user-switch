@@ -33,6 +33,6 @@ It’s simple! Frappe User Switch has its own way of [managing SIDs](https://mod
 
 ![image](https://github.com/user-attachments/assets/f1fc5211-a9a5-4e93-ab01-e35252b2f07d)
 
-#### License
+## License
 
 This project is licensed under the [AGPLv3 License](./LICENSE)

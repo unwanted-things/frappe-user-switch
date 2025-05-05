@@ -17,7 +17,7 @@ def get_current_frappe_users_sid_data(sid_user_map):
     sid = local.session.get("sid")
     user = frappe.db.get_value("User", frappe.session.user, "name")
 
-    sid_user_map = get_updated_sid_user_map(sid_user_map)
+    sid_user_map, user_name = get_updated_sid_user_map(sid_user_map)
 
     sid_user_map[sid] = user
 
@@ -87,16 +87,23 @@ def get_updated_sid_user_map(sid_user_map, is_delete=False):
 
     updated_map = {}
 
+    users_name = []
+
     for key in sid_user_map:
         if is_delete or (key in updated_map):
+            delete_session(key, user="", reason="User Manually Logged Out")
+            continue
+
+        if sid_user_map[key] in users_name:
             delete_session(key, user="", reason="User Manually Logged Out")
             continue
 
         handle_seesion_exits(key, sid_user_map[key])
 
         updated_map[key] = sid_user_map[key]
+        users_name.append(sid_user_map[key])
 
-    return updated_map
+    return updated_map, users_name
 
 
 def handle_seesion_exits(sid, user):
@@ -114,7 +121,9 @@ def handle_seesion_exits(sid, user):
     if is_exists:
         session_data = data[0]
         sid = session_data[0]
-        session_data = json.dumps(session_data[1])
+        session_data = json.loads(
+            session_data[1].replace("'", '"').replace("None", "null")
+        )
         return sid, session_data
 
     full_name, user_type = frappe.db.get_value("User", user, ["full_name", "user_type"])
